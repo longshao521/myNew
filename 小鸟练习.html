@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.container {
+				width: 343px;
+				height: 480px;
+				background-image: url(img/bg.jpg);
+				margin: 50px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.startpage {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.head {
+				width: 250px;
+				height: 77px;
+				margin: 100px auto;
+				position: relative;
+				animation: headb infinite linear alternate .8s;
+			}
+			
+			@-webkit-keyframes headb {
+				from {
+					transform: translateY(-30px);
+				}
+				to {
+					transform: translateY(20px);
+				}
+			}
+			
+			.bird0 {
+				width: 40px;
+				height: 26px;
+				position: absolute;
+				right: 0;
+				top: 25px;
+				animation: bird0 linear infinite alternate .3s;
+			}
+			
+			@-webkit-keyframes bird0 {
+				from {
+					background-image: url(img/bird0.png);
+				}
+				to {
+					background-image: url(img/bird1.png);
+				}
+			}
+			
+			.btn {
+				width: 250px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.btn button {
+				width: 85px;
+				height: 29px;
+				border: none;
+				outline: none;
+			}
+			
+			.btnstart {
+				margin-right: 20px;
+				background-image: url(img/start.jpg);
+			}
+			
+			.btnsumit {
+				background-image: url(img/submit.jpg);
+			}
+			
+			.slidewrap {
+				width: 100%;
+				height: 14px;
+				background: url(img/slider.jpg);
+				position: absolute;
+				bottom: 43px;
+				animation: slid linear infinite 3s;
+			}
+			
+			@-webkit-keyframes slid {
+				from {
+					background-position: 0 0;
+				}
+				to {
+					background-position: -343px 0;
+				}
+			}
+			
+			.gamewrap {
+				width: 100%;
+				height: 100%;
+				display: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.flybird {
+				width: 40px;
+				height: 30px;
+				position: absolute;
+				left: 50px;
+				background-image: url(img/down_bird0.png);
+			}
+			
+			.downbird {
+				background-image: url(img/down_bird0.png);
+				animation: downbird .3s linear infinite alternate;
+			}
+			
+			.upbird {
+				height: 29px;
+				background-image: url(img/up_bird0.png);
+				animation: upbird .3s linear infinite alternate;
+			}
+			
+			@-webkit-keyframes downbird {
+				from {
+					background-image: url(img/down_bird0.png);
+				}
+				to {
+					background-image: url(img/down_bird1.png);
+				}
+			}
+			
+			@-webkit-keyframes upbird {
+				from {
+					background-image: url(img/up_bird0.png);
+				}
+				to {
+					background-image: url(img/up_bird1.png);
+				}
+			}
+			
+			.flywrap {
+				width: 100%;
+				height: 423px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.flywrap li {
+				list-style: none;
+				width: 62px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+			}
+			
+			.zt {
+				width: 62px;
+				height: 100px;
+				position: absolute;
+				left: 0;
+				background-image: url(img/up_mod.png);
+				top: 0;
+			}
+			
+			.zthead {
+				width: 62px;
+				height: 60px;
+				position: absolute;
+				bottom: 0;
+				background-image: url(img/up_pipe.png);
+			}
+			
+			.zb {
+				width: 62px;
+				height: 100px;
+				position: absolute;
+				left: 0;
+				background-image: url(img/down_mod.png);
+				bottom: 0;
+			}
+			
+			.zbhead {
+				width: 62px;
+				height: 60px;
+				position: absolute;
+				top: 0;
+				background-image: url(img/down_pipe.png);
+			}
+			.score {
+				width: 343px;
+				height: 480px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+				/*background-color: lightcyan;*/
+				text-align: center;
+			}
+			
+			.score img:nth-child(1) {
+				margin-top: 80px;
+			}
+			
+			.score div {
+				width: 270px;
+				height: 135px;
+				background-image: url(img/message.jpg);
+				margin: 30px 36px;
+				position: relative;
+			}
+			
+			.score div span {
+				position: absolute;
+				right: 50px;
+				top: 40px;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="startpage">
+				<div class="head">
+					<img src="img/head.jpg" alt="" />
+					<div class="bird0"></div>
+				</div>
+				<div class="btn">
+					<button class="btnstart"></button>
+					<button class="btnsumit"></button>
+				</div>
+			</div>
+			<div class="slidewrap"></div>
+			<div class="gamewrap">
+				<div class="flybird downbird"></div>
+				<ul class="flywrap">
+					<!--<li>
+						<div class="zt">
+							<div class="zthead"></div>
+						</div>
+						<div class="zb">
+							<div class="zbhead"></div>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+			<div class="score">
+				<img src="img/game_over.jpg" alt="" />
+				<div>
+					<span>0</span>
+				</div>
+				<img class="btnok" src="img/ok.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var startpage = document.querySelector(".startpage");
+		var btnstart = document.querySelector(".btnstart");
+		var gamewrap = document.querySelector(".gamewrap");
+		var flybird = document.querySelector(".flybird");
+		var flywrap = document.querySelector(".flywrap");
+		var lis = document.getElementsByTagName("li");
+		var score = document.querySelector(".score");
+		var spans = document.querySelector(".score span");
+
+		var s = {
+			bw: 40,
+			bh: 30,
+			bl: 50,
+			speed: 0,
+			t: 0,
+			lw: 62,
+			lt: 500,
+			arrl: [],
+			count: 0
+		}
+
+		//开始
+		btnstart.onclick = function() {
+				startpage.style.display = "none";
+				gamewrap.style.display = "block";
+				birdMove();
+				createLi();
+				moveLi();
+			}
+			//小鸟移动
+
+		function birdMove() {
+			flybirdtimer = setInterval(function() {
+				s.speed += 1;
+				s.t += s.speed;
+				flybird.style.top = s.t + "px";
+				if(s.speed > 0) {
+					flybird.className = "flybird downbird";
+				} else {
+					flybird.className = "flybird upbird";
+				}
+				crash();
+			}, 100)
+		}
+		flywrap.onclick = function() {
+				s.speed = -8;
+			}
+			//创建水管
+
+		function createLi() {
+			createlitimer = setInterval(function() {
+				clearInterval(createlitimer);
+				s.lt = getRand(3500, 5500);
+				createLi();
+				var newLi = document.createElement("li");
+				newLi.style.left = "343px";
+				var topdiv = document.createElement("div");
+				topdiv.className = "zt";
+				topdiv.innerHTML = '<div class="zthead"></div>';
+				var topH = getRand(50, 200);
+				topdiv.style.height = topH + "px";
+				var bottomdiv = document.createElement("div");
+				bottomdiv.className = "zb";
+				bottomdiv.innerHTML = '<div class="zbhead"></div>';
+				var rdc = getRand(300, 350);
+				bottomdiv.style.height = (rdc - topH) + "px";
+				newLi.appendChild(topdiv);
+				newLi.appendChild(bottomdiv);
+				flywrap.appendChild(newLi);
+				s.arrl.push([343, topH, 423 - (rdc - topH), false]);
+			}, s.lt)
+		}
+
+		//移动水管
+		function moveLi() {
+			movetimer = setInterval(function() {
+				for(var i = 0; i < lis.length; i++) {
+					s.arrl[i][0] -= 5;
+					lis[i].style.left = s.arrl[i][0] + "px";
+					if(s.arrl[i][0] + s.lw <= 50 && s.arrl[i][3] == false) {
+						s.count++;
+						console.log(s.count);
+						spans.innerText = s.count;
+						s.arrl[i][3] = true;
+					}
+					if(s.arrl[i][0] < -80) {
+						lis[i].remove();
+						s.arrl.shift();
+					}
+				}
+			}, 100)
+		}
+
+		function crash() {
+			for(var i = 0; i < lis.length; i++) {
+				if(s.bl + s.bw >= s.arrl[i][0] && s.bl <= s.arrl[i][0] + s.lw) {
+					if(s.t <= s.arrl[i][1] || s.t >= s.arrl[i][2]) {
+						gameover();
+					}
+				}
+				if(s.t < 0 || s.t > 423) {
+					gameover();
+				}
+			}
+		}
+
+		function gameover() {
+			clearInterval(flybirdtimer);
+			clearInterval(createlitimer);
+			clearInterval(movetimer);
+			s.speed = 0;
+			flybird.className = "flybird downbird";
+			overtimer = setInterval(function() {
+				s.speed += 10;
+				s.t += s.speed;
+				if(s.t > 423) {
+					s.t = 423;
+					clearInterval(overtimer);
+					flybird.className = "flybird";
+				}
+				flybird.style.top = s.t + "px";
+			}, 100)
+			score.style.display = "block";			
+		}
+
+		function getRand(min, max) {
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+	</script>
+
+</html>
